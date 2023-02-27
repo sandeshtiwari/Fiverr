@@ -1,0 +1,12 @@
+.slide {
+  padding: 100px 0px;
+  display: flex;
+  align-items: center;
+  .container {
+    display: flex;
+    width: 90%px;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: scroll;
+  }
+}
