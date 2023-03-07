@@ -13,7 +13,7 @@ const Home = () => {
     <div className="home">
       <Featured />
       <TrustedBy />
-      <Slide>
+      <Slide slidesToShow={5} arrowsScroll={5}>
         {cards.map((card) => (
           <CatCard item={card} key={card.id} />
         ))}
