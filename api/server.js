@@ -9,6 +9,7 @@ import orderRoute from './routes/order.route.js';
 import reviewRoute from './routes/review.route.js';
 import authRoute from './routes/auth.route.js';
 import cookieParser from 'cookie-parser';
+import cors from 'cors';
 
 const app = express();
 dotenv.config();
@@ -24,6 +25,7 @@ const connect = async () => {
   }
 };
 
+app.use(cors({ origin: 'http://127.0.0.1:5173', credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
@@ -37,7 +39,7 @@ app.use('/api/reviews', reviewRoute);
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
-  const errorMessage = err.message || "Something went wrong!";
+  const errorMessage = err.message || 'Something went wrong!';
 
   return res.status(errorStatus).send(errorMessage);
 });
