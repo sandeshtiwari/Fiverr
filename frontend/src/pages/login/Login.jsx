@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Login.scss';
-import newRequest from '../newRequest';
 import { useNavigate } from 'react-router-dom';
+import newRequest from '../../utils/newRequest';
 
 const Login = () => {
   const [username, setUsername] = useState('');
