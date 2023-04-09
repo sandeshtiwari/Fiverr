@@ -3,6 +3,7 @@ import Review from '../models/review.model.js';
 import createError from '../utils/createError.js';
 
 export const createReview = async (req, res, next) => {
+  console.log("HERE");
   if (req.isSeller)
     return next(createError(403, "Sellers can't create a review!"));
   const newReview = new Review({
@@ -18,7 +19,7 @@ export const createReview = async (req, res, next) => {
     });
     if (review)
       return next(
-        createError(403, 'You have already created a review for this gig')
+        createError(403, "You have already created a review for this gig")
       );
     const savedReview = await newReview.save();
 
