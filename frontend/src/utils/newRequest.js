@@ -5,8 +5,12 @@ const newRequest = axios.create({
   withCredentials: true,
 });
 
-newRequest.defaults.headers.common['token'] = JSON.parse(
-  localStorage.getItem('currentUser')
-).token;
+if (localStorage.getItem("currentUser")) {
+  newRequest.defaults.headers.common["token"] = JSON.parse(
+    localStorage.getItem("currentUser")
+  ).token;
+}
+
+
 
 export default newRequest;
