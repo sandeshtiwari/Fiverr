@@ -9,9 +9,10 @@ export const verifyToken = (req, res, next) => {
   if (!token) return next(createError(401, 'Your are not authenticated!'));
 
   jwt.verify(token, process.env.JWT_KEY, async (err, payload) => {
-    if (err) return next(createError(403, 'Token is not valid!'));
+    if (err) return next(createError(403, "Token is not valid!"));
     req.userId = payload.id;
     req.isSeller = payload.isSeller;
+    // console.log(req);
     next();
   });
 };
