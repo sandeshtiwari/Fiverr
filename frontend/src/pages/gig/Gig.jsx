@@ -3,7 +3,7 @@ import Slider from 'infinite-react-carousel';
 import './Gig.scss';
 import { useQuery } from '@tanstack/react-query';
 import newRequest from '../../utils/newRequest';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Reviews from '../../components/reviews/Reviews';
 
 const Gig = () => {
@@ -24,7 +24,7 @@ const Gig = () => {
     error: errorUser,
     data: dataUser,
   } = useQuery({
-    queryKey: ["user"],
+    queryKey: ['user'],
     queryFn: () =>
       newRequest.get(`/users/${userId}`).then((res) => {
         return res.data;
@@ -161,7 +161,9 @@ const Gig = () => {
                 </div>
               ))}
             </div>
-            <button>Continue</button>
+            <Link to={`/pay/${id}`}>
+              <button>Continue</button>
+            </Link>
           </div>
         </div>
       )}
